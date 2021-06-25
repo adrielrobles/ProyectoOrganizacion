@@ -3,9 +3,9 @@
 presentacion: .asciiz  "************************************************** \n"
 presentacion1: .asciiz "--Aportes Mensuales de un Trabajador Ecuatoriano en Sectores Publicos-- \n"
 opcion: .asciiz "Ingresar salario del empleado Ecuatoriano: \n"
-opcion2: .asciiz "\nTotal aporte Mensual:"
+opcion2: .asciiz "\nTotal aporte Mensual: $"
 texto: .space len
-conts: .double 1.00
+conts: .double 0.00
 .text
 .globl funcionPublica
 funcionPublica:
@@ -27,12 +27,17 @@ funcionPublica:
 	li $a1, len
 	syscall
 	move $a1,$v0
+	l.d $f8,conts
 	jal SeguroPensiones
+	add.d $f8,$f10,$f8
+	jal leyDiscapacidades
+	add.d $f8,$f10,$f8
+	jal SeguroCampesino
+	add.d $f8,$f10,$f8
 	li $v0,4
    	la $a0,opcion2
 	syscall
-	l.d $f6,conts
-	mul.d $f12,$f10,$f6
+	mov.d $f12,$f8
 	li $v0,3
 	syscall
 	#--------

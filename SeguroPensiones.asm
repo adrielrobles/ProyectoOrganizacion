@@ -17,10 +17,11 @@ SeguroPensiones:
    	la $a0,presentacionPe
 	syscall
 	l.d $f0,aportePersonalPi
-	l.d $f4,conts
 	mtc1 $a1,$f2 #s0 es un el valor entero aleatorio convertido a flotante
 	cvt.d.w $f2,$f2
 	mul.d $f12,$f2,$f0
+	mtc1 $zero,$f4 #s0 es un el valor entero aleatorio convertido a flotante
+	cvt.d.w $f4,$f4
 	add.d $f10,$f12,$f4
 	li $v0,3
 	syscall
@@ -32,8 +33,11 @@ SeguroPensiones:
 	syscall
 	l.d $f0,aportePatronalPi
 	mul.d $f12,$f2,$f0
-	add.d $f10,$f12,$f10
+	add.d $f10,$f10,$f12
 	li $v0,3
+	syscall
+	li $v0,4
+   	la $a0,saltoLinea
 	syscall
 	#--------
 	lw $ra, ($sp)
