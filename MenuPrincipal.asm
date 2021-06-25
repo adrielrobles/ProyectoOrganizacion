@@ -2,11 +2,10 @@
 .eqv len 10
 presentacion: .asciiz  "************************************************** \n"
 presentacion1: .asciiz "---------------MENU PRINCIPAL--------------------- \n"
-opcion1: .asciiz "1.- Conocer los aportes mensuales de un Trabajador Ecuatoriano\n"
-opcion2: .asciiz "2.- Conocer los aportes anueles de un Trabajador Ecuatoriano\n"
+opcion1: .asciiz "1.- Conocer los aportes mensuales de un Trabajador Ecuatoriano en sectores Publicos\n"
+opcion2: .asciiz "2.- Conocer los aportes anueles de un Trabajador Ecuatoriano en sectores Privados\n"
 opcion3: .asciiz "3.- Salir del programa\n"
 opcion: .asciiz "Ingresar Opcion(1-3):\n"
-saltoLinea: .asciiz "\n" 
 texto: .space len
 .text
 .globl MenuPrincipal
@@ -37,7 +36,6 @@ Bucle:
 	beq $t0,3,funcion3
 	j Bucle
 funcion1:
-
 funcion2:
 funcion3:
 li $v0,10
