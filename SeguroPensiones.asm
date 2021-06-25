@@ -1,6 +1,7 @@
 .data
 aportePersonalPi: .double 0.0664
 aportePatronalPi: .double 0.0382
+conts: .double 0.00
 .eqv len 10
 presentacionPe: .asciiz "Aporte del seguro general de pensiones personal: $"
 presentacionPa: .asciiz "Aporte del seguro general de pensiones patronal: $"
@@ -16,9 +17,11 @@ SeguroPensiones:
    	la $a0,presentacionPe
 	syscall
 	l.d $f0,aportePersonalPi
+	l.d $f4,conts
 	mtc1 $a1,$f2 #s0 es un el valor entero aleatorio convertido a flotante
 	cvt.d.w $f2,$f2
 	mul.d $f12,$f2,$f0
+	add.d $f10,$f12,$f4
 	li $v0,3
 	syscall
 	li $v0,4
@@ -29,6 +32,7 @@ SeguroPensiones:
 	syscall
 	l.d $f0,aportePatronalPi
 	mul.d $f12,$f2,$f0
+	add.d $f10,$f12,$f10
 	li $v0,3
 	syscall
 	#--------

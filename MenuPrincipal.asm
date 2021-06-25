@@ -3,7 +3,7 @@
 presentacion: .asciiz  "************************************************** \n"
 presentacion1: .asciiz "---------------MENU PRINCIPAL--------------------- \n"
 opcion1: .asciiz "1.- Conocer los aportes mensuales de un Trabajador Ecuatoriano en sectores Publicos\n"
-opcion2: .asciiz "2.- Conocer los aportes anueles de un Trabajador Ecuatoriano en sectores Privados\n"
+opcion2: .asciiz "2.- Conocer los aportes mensuales de un Trabajador Ecuatoriano en sectores Privados\n"
 opcion3: .asciiz "3.- Salir del programa\n"
 opcion: .asciiz "Ingresar Opcion(1-3):\n"
 texto: .space len
