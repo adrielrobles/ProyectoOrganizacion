@@ -1,5 +1,5 @@
 .data
-.eqv len 10
+.eqv len 1000
 presentacion: .asciiz  "************************************************** \n"
 presentacion1: .asciiz "---------------MENU PRINCIPAL--------------------- \n"
 opcion1: .asciiz "1.- Conocer los aportes mensuales de un Trabajador Ecuatoriano en sectores Publicos\n"
@@ -36,6 +36,7 @@ Bucle:
 	beq $t0,3,funcion3
 	j Bucle
 funcion1:
+	jal funcionPublica 
 funcion2:
 funcion3:
 li $v0,10

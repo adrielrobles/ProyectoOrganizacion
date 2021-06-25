@@ -3,14 +3,10 @@
 presentacion: .asciiz  "************************************************** \n"
 presentacion1: .asciiz "--Aportes Mensuales de un Trabajador Ecuatoriano en Sectores Publicos-- \n"
 opcion: .asciiz "Ingresar salario del empleado Ecuatoriano: \n"
-salarioA: .asciiz "Salario acordado por la empresa: \n"
-salarioIess .asciiz "Aporte al IESS en sectores publicos: \n"
-salarioIess .asciiz "Aporte al IESS en sectores privados: \n"
-salarioFondo .asciiz "Aporte de fondos de reserva: \n"
 texto: .space len
 .text
-.globl funcionMensual
-funcionMensual:
+.globl funcionPublica
+funcionPublica:
 	addi $sp,$sp,-4
 	sw $ra,($sp)
    	#---------
@@ -27,8 +23,8 @@ funcionMensual:
 	la $a0,texto
 	li $a1, len
 	syscall
-	move $s0,$v0
-	
+	move $a1,$v0
+	jal SeguroPensiones
 	#--------
 	lw $ra, ($sp)
 	addi $sp,$sp,4
