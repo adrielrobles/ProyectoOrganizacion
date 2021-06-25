@@ -1,7 +1,7 @@
 .data
 aportePersonalPi: .double 0.0000
-aportePatronalPi: .double 0.0516
-aportePersonalPu: .double 0.0020
+aportePatronalPi: .double 0.0020
+aportePersonalPu: .double 0.0000
 aportePatronalPu: .double 0.0038
 conts: .double 0.00
 presentacionPe: .asciiz "Aporte del seguro de riesgo del trabajo personal: $"
