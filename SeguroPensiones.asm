@@ -9,8 +9,9 @@ saltoLinea: .asciiz "\n"
 .text
 .globl SeguroPensiones
 SeguroPensiones:
-	addi $sp,$sp,-4
-   	sw $ra,($sp)
+	addi $sp,$sp,-8
+   	sw $ra,0($sp)
+   	sw $a0,4($sp)	
    	#---------
 	li $v0,4
    	la $a0,presentacionPe
@@ -33,6 +34,7 @@ SeguroPensiones:
 	syscall
 	#--------
 	lw $ra, ($sp)
+	lw $a0, 4($sp)
 	addi $sp,$sp,4
 	#--------
 	jr $ra

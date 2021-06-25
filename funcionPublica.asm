@@ -24,7 +24,11 @@ funcionPublica:
 	li $a1, len
 	syscall
 	move $a1,$v0
+	addi $a0,$a0,1
 	jal SeguroPensiones
+	jal SeguroSalud
+	jal SeguroTrabajo
+	jal SeguroCesantia
 	#--------
 	lw $ra, ($sp)
 	addi $sp,$sp,4
