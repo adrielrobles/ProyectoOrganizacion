@@ -42,7 +42,8 @@ SeguroTrabajo:
 		syscall		
 		add.d $f10,$f12,$f10
 		j END
-PRIVADO:	li $v0, 4
+PRIVADO:	
+		li $v0, 4
    		la $a0, presentacionPe
    		syscall
    		l.d $f0,aportePersonalPi

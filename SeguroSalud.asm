@@ -15,9 +15,6 @@ SeguroSalud:
    		sw $ra,0($sp)
    		sw $a0,4($sp)	
    		#---------------
-   		li $v0,4
-   		la $a0,saltoLinea
-		syscall
    		l.d $f4,conts
    		mtc1 $a1,$f2 
 		cvt.d.w $f2,$f2
@@ -42,7 +39,8 @@ SeguroSalud:
 		syscall		
 		add.d $f10,$f12,$f10
 		j END
-PRIVADO:	li $v0, 4
+PRIVADO:	
+		li $v0, 4
    		la $a0, presentacionPe
    		syscall
    		l.d $f0,aportePersonalPi

@@ -35,9 +35,9 @@ funcionPublica:
 	add.d $f8,$f10,$f8
 	jal SeguroTrabajo
 	add.d $f8,$f10,$f8
-	jal SeguroCesantia
-	add.d $f8,$f10,$f8
 	jal GastosAdministracion
+	add.d $f8,$f10,$f8
+	jal SeguroCesantia
 	add.d $f8,$f10,$f8
 	jal leyDiscapacidades
 	add.d $f8,$f10,$f8

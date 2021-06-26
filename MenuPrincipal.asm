@@ -37,7 +37,10 @@ Bucle:
 	j Bucle
 funcion1:
 	jal funcionPublica 
+	j Bucle
 funcion2:
+	jal funcionPrivada
+	j Bucle
 funcion3:
-li $v0,10
-syscall
+	li $v0,10
+	syscall

@@ -12,8 +12,6 @@ GastosAdministracion:
    	sw $ra,0($sp)
    	sw $a0,4($sp)	
    	#---------
-   	li $v0,4
-   	la $a0,saltoLinea
 	syscall
    	la $a0,presentacionPe
 	syscall
