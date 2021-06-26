@@ -48,6 +48,7 @@ PRIVADO:
    		l.d $f0,aportePersonalPi
 		mul.d $f12,$f2,$f0
 		add.d $f10,$f12,$f4
+		add.d $f14,$f12,$f4# Resultado Personal
 		li $v0, 3
 		syscall
 		li $v0,4
@@ -59,9 +60,9 @@ PRIVADO:
 		l.d $f0,aportePatronalPi
 		mul.d $f12,$f2,$f0
 		add.d $f10,$f12,$f10
+		add.d $f16,$f12,$f4# resultado Patronal
 		li $v0,3
 		syscall	
-		add.d $f10,$f12,$f10
 END:		
 		li $v0,4
    		la $a0,saltoLinea
