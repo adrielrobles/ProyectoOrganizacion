@@ -15,9 +15,6 @@ SeguroTrabajo:
    		sw $ra,0($sp)
    		sw $a0,4($sp)	
    		#---------------
-   		li $v0,4
-   		la $a0,saltoLinea
-		syscall
    		l.d $f4,conts
    		mtc1 $a1,$f2 
 		cvt.d.w $f2,$f2
@@ -28,6 +25,7 @@ SeguroTrabajo:
    		l.d $f0,aportePersonalPu
 		mul.d $f12,$f2,$f0
 		add.d $f10,$f12,$f4
+		add.d $f14,$f12,$f4# Resultado Personal
 		li $v0, 3
 		syscall
 		li $v0,4
@@ -38,9 +36,10 @@ SeguroTrabajo:
 		syscall
 		l.d $f0,aportePatronalPu
 		mul.d $f12,$f2,$f0
-		li $v0,3
-		syscall		
 		add.d $f10,$f12,$f10
+		add.d $f16,$f12,$f4# resultado Patronal
+		li $v0,3
+		syscall
 		j END
 PRIVADO:	
 		li $v0, 4
@@ -49,6 +48,7 @@ PRIVADO:
    		l.d $f0,aportePersonalPi
 		mul.d $f12,$f2,$f0
 		add.d $f10,$f12,$f4
+		add.d $f14,$f12,$f4# Resultado Personal
 		li $v0, 3
 		syscall
 		li $v0,4
@@ -60,11 +60,14 @@ PRIVADO:
 		l.d $f0,aportePatronalPi
 		mul.d $f12,$f2,$f0
 		add.d $f10,$f12,$f10
+		add.d $f16,$f12,$f4# resultado Patronal
 		li $v0,3
 		syscall	
-   		#---------------
-   		lw $ra, ($sp)
+END:
+		li $v0,4
+   		la $a0,saltoLinea
+		syscall
+		lw $ra, ($sp)
 		lw $a0, 4($sp)
-		addi $sp,$sp,4
-		#---------------
-END:		jr $ra
+		addi $sp,$sp,8		
+		jr $ra

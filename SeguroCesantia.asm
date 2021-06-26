@@ -13,8 +13,6 @@ SeguroCesantia:
    	sw $a0,4($sp)	
    	#---------
    	li $v0,4
-   	la $a0,saltoLinea
-	syscall
    	la $a0,presentacionPe
 	syscall
 	l.d $f4,conts
@@ -23,6 +21,7 @@ SeguroCesantia:
 	cvt.d.w $f2,$f2
 	mul.d $f12,$f2,$f0
 	add.d $f10,$f12,$f4
+	add.d $f14,$f12,$f4# Resultado Personal
 	li $v0,3
 	syscall
 	li $v0,4
@@ -34,6 +33,7 @@ SeguroCesantia:
 	l.d $f0,aportePatronalPi
 	mul.d $f12,$f2,$f0
 	add.d $f10,$f10,$f12
+	add.d $f16,$f12,$f4# resultado Patronal
 	li $v0,3
 	syscall
 	li $v0,4
@@ -42,6 +42,6 @@ SeguroCesantia:
 	#--------
 	lw $ra, ($sp)
 	lw $a0, 4($sp)
-	addi $sp,$sp,4
+	addi $sp,$sp,8
 	#--------
 	jr $ra

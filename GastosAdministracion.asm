@@ -12,7 +12,7 @@ GastosAdministracion:
    	sw $ra,0($sp)
    	sw $a0,4($sp)	
    	#---------
-	syscall
+   	li $v0, 4
    	la $a0,presentacionPe
 	syscall
 	l.d $f4,conts
@@ -21,6 +21,7 @@ GastosAdministracion:
 	cvt.d.w $f2,$f2
 	mul.d $f12,$f2,$f0
 	add.d $f10,$f12,$f4
+	add.d $f14,$f12,$f4# Resultado Personal
 	li $v0,3
 	syscall
 	li $v0,4
@@ -32,6 +33,7 @@ GastosAdministracion:
 	l.d $f0,aportePatronalPi
 	mul.d $f12,$f2,$f0
 	add.d $f10,$f12,$f10
+	add.d $f16,$f12,$f4# resultado Patronal
 	li $v0,3
 	syscall
 	li $v0,4
@@ -40,6 +42,6 @@ GastosAdministracion:
 	#--------
 	lw $ra, ($sp)
 	lw $a0, 4($sp)
-	addi $sp,$sp,4
+	addi $sp,$sp,8
 	#--------
 	jr $ra
